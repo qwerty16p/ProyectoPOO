@@ -1,0 +1,9 @@
+Snake\SnakeGamePanel.class
+Snake\LoginDialog.class
+Entities\Jugador.class
+Snake\Snake.class
+Data\DBConnection.class
+Data\JugadorDAO.class
+Service\GameService.class
+Data\PartidaDAO.class
+Entities\Partida.class

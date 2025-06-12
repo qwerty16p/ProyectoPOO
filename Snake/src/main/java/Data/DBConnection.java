@@ -9,9 +9,9 @@ import java.sql.SQLException;
  */
 public class DBConnection {
     // Configuración de la conexión (ajusta estos valores según tu entorno)
-    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=SnakeGameDB;encrypt=true;trustServerCertificate=true";
+    private static final String URL = "jdbc:sqlserver://localhost:1434;databaseName=SnakeGameDB;encrypt=true;trustServerCertificate=true";
     private static final String USER = "sa";
-    private static final String PASSWORD = "tu_contraseña";
+    private static final String PASSWORD = "1234";
     
     // Bloque estático para registrar el driver (opcional en versiones recientes de JDBC)
     static {
