@@ -11,12 +11,7 @@ public class PartidaDAO {
     private static final String SELECT_BY_JUGADOR_SQL = "SELECT * FROM Partidas WHERE IdJugador = ? ORDER BY FechaHoraInicio DESC";
     private static final String SELECT_TOP_SCORES_SQL = "SELECT TOP 10 p.*, j.Pseudonimo FROM Partidas p JOIN Jugadores j ON p.IdJugador = j.IdJugador ORDER BY p.Puntaje DESC";
 
-    /**
-     * Inserta una nueva partida en la base de datos
-     * @param partida la partida a insertar
-     * @return el ID generado para la partida, o -1 si falla
-     * @throws SQLException si ocurre un error de base de datos
-     */
+    
     public int insert(Partida partida) throws SQLException {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -34,11 +29,7 @@ public class PartidaDAO {
         return -1;
     }
 
-    /**
-     * Actualiza una partida existente con fecha de fin y puntaje
-     * @param partida la partida a actualizar
-     * @throws SQLException si ocurre un error de base de datos
-     */
+
     public void update(Partida partida) throws SQLException {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(UPDATE_SQL)) {
@@ -50,12 +41,6 @@ public class PartidaDAO {
         }
     }
 
-    /**
-     * Busca todas las partidas de un jugador específico
-     * @param idJugador el ID del jugador
-     * @return lista de partidas del jugador ordenadas por fecha descendente
-     * @throws SQLException si ocurre un error de base de datos
-     */
     public List<Partida> findByJugador(int idJugador) throws SQLException {
         List<Partida> partidas = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();
@@ -81,11 +66,6 @@ public class PartidaDAO {
         return partidas;
     }
 
-    /**
-     * Obtiene las 10 mejores puntuaciones con información del jugador
-     * @return lista de las mejores partidas ordenadas por puntaje descendente
-     * @throws SQLException si ocurre un error de base de datos
-     */
     public List<Partida> getTopScores() throws SQLException {
         List<Partida> partidas = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();

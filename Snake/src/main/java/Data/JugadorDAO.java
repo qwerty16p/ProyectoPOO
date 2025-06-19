@@ -10,12 +10,7 @@ public class JugadorDAO {
     private static final String SELECT_BY_PSEUDONIMO_SQL = "SELECT * FROM Jugadores WHERE Pseudonimo = ?";
     private static final String SELECT_ALL_SQL = "SELECT * FROM Jugadores";
     
-    /**
-     * Inserta un nuevo jugador en la base de datos
-     * @param jugador el jugador a insertar
-     * @return el ID generado para el jugador, o -1 si falla
-     * @throws SQLException si ocurre un error de base de datos
-     */
+
     public int insert(Jugador jugador) throws SQLException {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -33,12 +28,7 @@ public class JugadorDAO {
         return -1;
     }
     
-    /**
-     * Busca un jugador por su ID
-     * @param id el ID del jugador
-     * @return el jugador encontrado o null si no existe
-     * @throws SQLException si ocurre un error de base de datos
-     */
+    
     public Jugador findById(int id) throws SQLException {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(SELECT_BY_ID_SQL)) {
@@ -58,12 +48,7 @@ public class JugadorDAO {
         return null;
     }
     
-    /**
-     * Busca un jugador por su pseudónimo
-     * @param pseudonimo el pseudónimo del jugador
-     * @return el jugador encontrado o null si no existe
-     * @throws SQLException si ocurre un error de base de datos
-     */
+    
     public Jugador findByPseudonimo(String pseudonimo) throws SQLException {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(SELECT_BY_PSEUDONIMO_SQL)) {
@@ -83,11 +68,7 @@ public class JugadorDAO {
         return null;
     }
     
-    /**
-     * Obtiene todos los jugadores de la base de datos
-     * @return lista de todos los jugadores
-     * @throws SQLException si ocurre un error de base de datos
-     */
+    
     public List<Jugador> findAll() throws SQLException {
         List<Jugador> jugadores = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();

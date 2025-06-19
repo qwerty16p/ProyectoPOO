@@ -8,7 +8,6 @@ public class Jugador {
     private String pseudonimo;
     private LocalDateTime fechaRegistro;
 
-    // Constructores, getters y setters
     public Jugador() {}
 
     public Jugador(String nombre, String pseudonimo) {
@@ -17,7 +16,6 @@ public class Jugador {
         this.fechaRegistro = LocalDateTime.now();
     }
 
-    // Getters y setters...
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getNombre() { return nombre; }
