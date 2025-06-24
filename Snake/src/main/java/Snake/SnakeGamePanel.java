@@ -197,6 +197,8 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         } else if (tecla == KeyEvent.VK_R && juegoTerminado) {
             reiniciarJuego();
         } else if (tecla == KeyEvent.VK_ESCAPE) {
+            pausado = !pausado;
+            repaint();
             int opcion = JOptionPane.showConfirmDialog(this, "¿Terminar partida y salir?", "Confirmar", JOptionPane.YES_NO_OPTION);
             if (opcion == JOptionPane.YES_OPTION) {
                 juegoTerminado = true;
